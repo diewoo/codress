@@ -80,3 +80,8 @@ export const UserNameContainer = styled.span`
   width: 100%;
   text-align:center;
 `;
+export const RateContainer = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+`;

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { addItem } from '../../redux/cart/cart.actions';
+import { Image, Label, Rating, Button, Icon, Dimmer } from 'semantic-ui-react';
 
 import {
   CollectionItemContainer,
@@ -10,7 +11,8 @@ import {
   BackgroundImage,
   NameContainer,
   PriceContainer,
-  UserNameContainer
+  UserNameContainer,
+  RateContainer
 } from './collection-item.styles';
 
 const CollectionItem = ({ item, addItem }) => {
@@ -24,6 +26,9 @@ const CollectionItem = ({ item, addItem }) => {
         <PriceContainer>{price}</PriceContainer>
       </CollectionFooterContainer>
       <UserNameContainer>{userName}</UserNameContainer>
+        <RateContainer>
+          <Rating maxRating={5} defaultRating={3} icon='star' size='small' />
+          </RateContainer>
       <AddButton onClick={() => addItem(item)} inverted>
         AGREGAR
       </AddButton>
