@@ -76,3 +76,7 @@ export const PriceContainer = styled.span`
   width: 10%;
   text-align: right;
 `;
+export const UserNameContainer = styled.span`
+  width: 100%;
+  text-align:center;
+`;

@@ -9,11 +9,12 @@ import {
   AddButton,
   BackgroundImage,
   NameContainer,
-  PriceContainer
+  PriceContainer,
+  UserNameContainer
 } from './collection-item.styles';
 
 const CollectionItem = ({ item, addItem }) => {
-  const { name, price, imageUrl } = item;
+  const { name, price, imageUrl ,userName } = item;
 
   return (
     <CollectionItemContainer>
@@ -22,8 +23,9 @@ const CollectionItem = ({ item, addItem }) => {
         <NameContainer>{name}</NameContainer>
         <PriceContainer>{price}</PriceContainer>
       </CollectionFooterContainer>
+      <UserNameContainer>{userName}</UserNameContainer>
       <AddButton onClick={() => addItem(item)} inverted>
-        Add to cart
+        AGREGAR
       </AddButton>
     </CollectionItemContainer>
   );

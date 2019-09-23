@@ -37,15 +37,15 @@ const SignUp = ({ signUpStart }) => {
 
   return (
     <SignUpContainer>
-      <SignUpTitle>I do not have a account</SignUpTitle>
-      <span>Sign up with your email and password</span>
+      <SignUpTitle>No tengo una cuenta</SignUpTitle>
+      <span>Ingresar con tu email y password</span>
       <form className='sign-up-form' onSubmit={handleSubmit}>
         <FormInput
           type='text'
           name='displayName'
           value={displayName}
           onChange={handleChange}
-          label='Display Name'
+          label='Nombres'
           required
         />
         <FormInput
@@ -69,10 +69,10 @@ const SignUp = ({ signUpStart }) => {
           name='confirmPassword'
           value={confirmPassword}
           onChange={handleChange}
-          label='Confirm Password'
+          label='Confirmar Password'
           required
         />
-        <CustomButton type='submit'>SIGN UP</CustomButton>
+        <CustomButton type='submit'>REGISTRARSE</CustomButton>
       </form>
     </SignUpContainer>
   );

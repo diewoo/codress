@@ -22,27 +22,27 @@ const CheckoutPage = ({ cartItems, total }) => (
   <CheckoutPageContainer>
     <CheckoutHeaderContainer>
       <HeaderBlockContainer>
-        <span>Product</span>
+        <span>Producto</span>
       </HeaderBlockContainer>
       <HeaderBlockContainer>
-        <span>Description</span>
+        <span>Descripcion</span>
       </HeaderBlockContainer>
       <HeaderBlockContainer>
-        <span>Quantity</span>
+        <span>Cantidad</span>
       </HeaderBlockContainer>
       <HeaderBlockContainer>
-        <span>Price</span>
+        <span>Precio</span>
       </HeaderBlockContainer>
       <HeaderBlockContainer>
-        <span>Remove</span>
+        <span>Eliminar</span>
       </HeaderBlockContainer>
     </CheckoutHeaderContainer>
     {cartItems.map(cartItem => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}
-    <TotalContainer>TOTAL: ${total}</TotalContainer>
+    <TotalContainer>TOTAL: S/{total}</TotalContainer>
     <WarningContainer>
-      *Please use the following test credit card for payments*
+      *test credit card for payments*
       <br />
       4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
     </WarningContainer>
