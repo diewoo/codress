@@ -27,7 +27,7 @@ const CollectionItem = ({ item, addItem }) => {
       </CollectionFooterContainer>
       <UserNameContainer>{userName}</UserNameContainer>
         <RateContainer>
-          <Rating maxRating={5} defaultRating={3} icon='star' size='small' />
+          <Rating maxRating={5} defaultRating={3} icon='star' size='large' />
           </RateContainer>
       <AddButton onClick={() => addItem(item)} inverted>
         AGREGAR
