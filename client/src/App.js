@@ -8,10 +8,8 @@ import Spinner from './components/spinner/spinner.component';
 import ErrorBoundary from './components/error-boundary/error-boundary.component';
 
 import { GlobalStyle } from './global.styles';
-
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
-
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const SignInAndSignUpPage = lazy(() =>
@@ -21,6 +19,7 @@ const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 const productosPage = lazy(() =>
   import('./pages/productos/productos.component')
 );
+
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
