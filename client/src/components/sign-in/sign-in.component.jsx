@@ -6,8 +6,7 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import {
   googleSignInStart,
-  emailSignInStart,
-  loginUser 
+  emailSignInStart
 } from '../../redux/user/user.actions';
 
 import {
@@ -16,20 +15,18 @@ import {
   ButtonsBarContainer
 } from './sign-in.styles';
 
-const SignIn = ({ emailSignInStart, googleSignInStart , loginUser }) => {
+const SignIn = ({ emailSignInStart, googleSignInStart }) => {
   const [userCredentials, setCredentials] = useState({
-    email: 'prueba12344@gmail.com',
-    password: '123456',
-    errors: {}
+    email: '',
+    password: ''
   });
 
   const { email, password } = userCredentials;
 
   const handleSubmit = async event => {
     event.preventDefault();
-    //emailSignInStart(email, password);
-    loginUser (email,password)
-    
+
+    emailSignInStart(email, password);
   };
 
   const handleChange = event => {
@@ -77,11 +74,9 @@ const SignIn = ({ emailSignInStart, googleSignInStart , loginUser }) => {
 
 const mapDispatchToProps = dispatch => ({
   googleSignInStart: () => dispatch(googleSignInStart()),
-  loginUser: (email, password) => dispatch(loginUser({ email, password })),
   emailSignInStart: (email, password) =>
     dispatch(emailSignInStart({ email, password }))
 });
-
 
 export default connect(
   null,

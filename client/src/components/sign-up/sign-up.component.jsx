@@ -4,19 +4,18 @@ import { connect } from 'react-redux';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
-import { signUpStart, signupUser } from '../../redux/user/user.actions';
+import { signUpStart } from '../../redux/user/user.actions';
 
 import { SignUpContainer, SignUpTitle } from './sign-up.styles';
-const SignUp = ({ signUpStart, signupUser }) => {
+const SignUp = ({ signUpStart }) => {
   const [userCredentials, setUserCredentials] = useState({
-    handle: 'diego2122',
-    email: 'prueba126644@gmail.com',
-    password: '123456',
-    confirmPassword: '123456',
-    errors: {}
+    displayName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
   });
 
-  const { handle, email, password, confirmPassword } = userCredentials;
+  const { displayName, email, password, confirmPassword } = userCredentials;
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -26,8 +25,7 @@ const SignUp = ({ signUpStart, signupUser }) => {
       return;
     }
 
-    // signUpStart({ displayName, email, password });
-    signupUser(userCredentials);
+    signUpStart({ displayName, email, password });
   };
 
   const handleChange = event => {
@@ -43,8 +41,8 @@ const SignUp = ({ signUpStart, signupUser }) => {
       <form className='sign-up-form' onSubmit={handleSubmit}>
         <FormInput
           type='text'
-          name='handle'
-          value={handle}
+          name='displayName'
+          value={displayName}
           onChange={handleChange}
           label='Nombres'
           required
@@ -80,8 +78,7 @@ const SignUp = ({ signUpStart, signupUser }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  signUpStart: userCredentials => dispatch(signUpStart(userCredentials)),
-  signupUser: userCredentials => dispatch(signupUser(userCredentials))
+  signUpStart: userCredentials => dispatch(signUpStart(userCredentials))
 });
 
 export default connect(

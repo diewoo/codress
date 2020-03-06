@@ -1,103 +1,34 @@
-// import UserActionTypes from './user.types';
+import UserActionTypes from './user.types';
 
-// const INITIAL_STATE = {
-//   currentUser: null,
-//   error: null
-// };
-
-// const userReducer = (state = INITIAL_STATE, action) => {
-//   switch (action.type) {
-//     case UserActionTypes.SIGN_IN_SUCCESS:
-//       return {
-//         ...state,
-//         currentUser: action.payload,
-//         error: null
-//       };
-//     case UserActionTypes.SIGN_OUT_SUCCESS:
-//       return {
-//         ...state,
-//         currentUser: null,
-//         error: null
-//       };
-//     case UserActionTypes.SIGN_IN_FAILURE:
-//     case UserActionTypes.SIGN_OUT_FAILURE:
-//     case UserActionTypes.SIGN_UP_FAILURE:
-//       return {
-//         ...state,
-//         error: action.payload
-//       };
-//     default:
-//       return state;
-//   }
-// };
-
-// export default userReducer;
-
-
-import {
-  SET_USER,
-  SET_AUTHENTICATED,
-  SET_UNAUTHENTICATED,
-  LOADING_USER,
-  LIKE_PRODUCT,
-  UNLIKE_PRODUCT,
-  MARK_NOTIFICATIONS_READ
-} from '../types';
-
-const initialState = {
-  authenticated: false,
-  loading: false,
-  credentials: {},
-  likes: [],
-  notifications: []
+const INITIAL_STATE = {
+  currentUser: null,
+  error: null
 };
 
-const userReducer = (state = initialState, action) => {
+const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SET_AUTHENTICATED:
+    case UserActionTypes.SIGN_IN_SUCCESS:
       return {
         ...state,
-        authenticated: true
+        currentUser: action.payload,
+        error: null
       };
-    case SET_UNAUTHENTICATED:
-      return initialState;
-    case SET_USER:
-      return {
-        authenticated: true,
-        loading: false,
-        ...action.payload
-      };
-    case LOADING_USER:
+    case UserActionTypes.SIGN_OUT_SUCCESS:
       return {
         ...state,
-        loading: true
+        currentUser: null,
+        error: null
       };
-    case LIKE_PRODUCT:
+    case UserActionTypes.SIGN_IN_FAILURE:
+    case UserActionTypes.SIGN_OUT_FAILURE:
+    case UserActionTypes.SIGN_UP_FAILURE:
       return {
         ...state,
-        likes: [
-          ...state.likes,
-          {
-            userHandle: state.credentials.handle,
-            screamId: action.payload.screamId
-          }
-        ]
-      };
-    case UNLIKE_PRODUCT:
-      return {
-        ...state,
-        likes: state.likes.filter(
-          (like) => like.screamId !== action.payload.screamId
-        )
-      };
-    case MARK_NOTIFICATIONS_READ:
-      state.notifications.forEach((not) => (not.read = true));
-      return {
-        ...state
+        error: action.payload
       };
     default:
       return state;
   }
-}
+};
 
 export default userReducer;
